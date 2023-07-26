@@ -2,7 +2,7 @@
 #define _config_h_
 
 // app parameters
-#define DEBUG 0
+#define DEBUG 1
 #define FULLSCREEN 0
 #define WINDOW_WIDTH 1024
 #define WINDOW_HEIGHT 768
@@ -37,7 +37,7 @@
 #define CRAFT_KEY_OBSERVE_INSET 'P'
 #define CRAFT_KEY_ITEM_NEXT 'E'
 #define CRAFT_KEY_ITEM_PREV 'R'
-#define CRAFT_KEY_ZOOM GLFW_KEY_LEFT_SHIFT
+#define CRAFT_KEY_ZOOM 'Z'
 #define CRAFT_KEY_ORTHO 'F'
 #define CRAFT_KEY_CHAT 't'
 #define CRAFT_KEY_COMMAND '/'
