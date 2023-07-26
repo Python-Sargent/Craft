@@ -2,7 +2,7 @@
 
 Minecraft clone for Windows, Mac OS X and Linux. Just a few thousand lines of C using modern OpenGL (shaders). Online multiplayer support is included using a Python-based server.
 
-http://www.michaelfogleman.com/craft/
+https://github.com/Python-Sargent/Craft.git
 
 ![Screenshot](https://i.imgur.com/SH7wcas.png)
 
@@ -17,10 +17,6 @@ http://www.michaelfogleman.com/craft/
 * Multiplayer support!
 
 ### Download
-
-Mac and Windows binaries are available on the website.
-
-http://www.michaelfogleman.com/craft/
 
 See below to run from source.
 
@@ -57,7 +53,7 @@ Use the following commands in place of the ones described in the next section.
 Once you have the dependencies (see above), run the following commands in your
 terminal.
 
-    git clone https://github.com/fogleman/Craft.git
+    git clone https://github.com/Python-Sargent/Craft.git
     cd Craft
     cmake .
     make
@@ -65,7 +61,7 @@ terminal.
 
 ### Multiplayer
 
-After many years, craft.michaelfogleman.com has been taken down. See the [Server](#server) section for info on self-hosting.
+See the [Server](#server) section for info on self-hosting.
 
 #### Client
 
@@ -101,7 +97,7 @@ python server.py [HOST [PORT]]
 - E to cycle through the block types.
 - Tab to toggle between walking and flying.
 - ZXCVBN to move in exact directions along the XYZ axes.
-- Left shift to zoom.
+- Z to zoom.
 - F to show the scene in orthographic mode.
 - O to observe players in the main view.
 - P to observe players in the picture-in-picture view.
