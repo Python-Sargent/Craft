@@ -1,8 +1,8 @@
-## Craft
+## OpenCube
 
 Minecraft clone for Windows, Mac OS X and Linux. Just a few thousand lines of C using modern OpenGL (shaders). Online multiplayer support is included using a Python-based server.
 
-https://github.com/Python-Sargent/Craft.git
+https://github.com/Python-Sargent/OpenCube.git
 
 ![Screenshot](https://i.imgur.com/SH7wcas.png)
 
@@ -58,22 +58,22 @@ Use the following commands in place of the ones described in the next section.
 Once you have the dependencies (see above), run the following commands in your
 terminal.
 
-    git clone https://github.com/Python-Sargent/Craft.git
-    cd Craft
+    git clone https://github.com/Python-Sargent/OpenCube.git
+    cd OpenCube
     cmake .
     make
-    ./craft
+    ./OpenCube
 
 ### Multiplayer
 
-See the [Server](#server) section for info on self-hosting.
+See the [Server](#server) section for self-hosting information.
 
 #### Client
 
 You can connect to a server with command line arguments...
 
 ```bash
-./craft [HOST [PORT]]
+./OpenCube [HOST [PORT]]
 ```
 
 Or, with the "/online" command in the game itself.
@@ -136,7 +136,7 @@ Automatic logins will not occur again until the /login command is re-issued.
     /offline [FILE]
 
 Switch to offline mode.
-FILE specifies the save file to use and defaults to "craft".
+FILE specifies the save file to use and defaults to "OpenCube".
 
     /online HOST [PORT]
 
