@@ -37,16 +37,11 @@ the installation:
 
 #### Windows
 
-##### Using MinGW
-Download and install [CMake](http://www.cmake.org/cmake/resources/software.html)
-and [MinGW](https://www.mingw-w64.org/downloads/). Add `C:\MinGW\bin` to your `PATH`.
-
 ##### Using MSYS2
-Download and Install [MSYS2](https://www.msys2.org/) and [CMake](http://www.cmake.org/cmake/resources/software.html)
-run MSYS2 terminal and use `pacman` to install `mingw-w64-x86_64-cmake` and `mingw-w64-x86_64-make`. Run the following:
+Download and Install [MSYS2](https://www.msys2.org/) and [CMake](http://www.cmake.org/cmake/resources/software.html).
+Download and install [MinGW](https://sourceforge.net/projects/mingw-w64/files/latest/download) follow the `mingw-w64-howto-build.txt` in `mingw-w64-doc`.
 
-    pacman -S mingw-w64-x86_64-cmake
-    pacman -S mingw-w64-x86_64-make
+
 
 ##### Get cURL
 
