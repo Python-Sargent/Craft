@@ -5,12 +5,12 @@ set(CMAKE_CXX_COMPILER "/usr/bin/g++.exe")
 set(CMAKE_MAKE_PROGRAM "/usr/bin/cmake.exe")
 set(CMAKE_GENERATOR "MinGW Makefiles")
 
-project(craft)
+project(opencube)
 
 FILE(GLOB SOURCE_FILES src/*.c)
 
 add_executable(
-    craft
+    opencube
     ${SOURCE_FILES}
     deps/glew/src/glew.c
     deps/lodepng/lodepng.c
@@ -39,16 +39,16 @@ find_package(CURL REQUIRED)
 include_directories(${CURL_INCLUDE_DIR})
 
 if(APPLE)
-    target_link_libraries(craft glfw
+    target_link_libraries(opencube glfw
         ${GLFW_LIBRARIES} ${CURL_LIBRARIES})
 endif()
 
 if(UNIX)
-    target_link_libraries(craft dl glfw
+    target_link_libraries(opencube dl glfw
         ${GLFW_LIBRARIES} ${CURL_LIBRARIES})
 endif()
 
 if(MINGW)
-    target_link_libraries(craft ws2_32.lib glfw
+    target_link_libraries(opencube ws2_32.lib glfw
         ${GLFW_LIBRARIES} ${CURL_LIBRARIES})
 endif()

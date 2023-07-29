@@ -53,16 +53,18 @@ Use the following commands in place of the ones described in the next section.
     cmake -G "MinGW Makefiles"
     mingw32-make
 
+---
+
 ### Compile and Run
 
 Once you have the dependencies (see above), run the following commands in your
 terminal.
 
-    git clone https://github.com/Python-Sargent/Craft.git
+    git clone https://github.com/Python-Sargent/OpenCube.git
     cd Craft
     cmake .
     make
-    ./craft
+    ./opencube
 
 ### Multiplayer
 
@@ -73,7 +75,7 @@ See the [Server](#server) section for info on self-hosting.
 You can connect to a server with command line arguments...
 
 ```bash
-./craft [HOST [PORT]]
+./opencube [HOST [PORT]]
 ```
 
 Or, with the "/online" command in the game itself.
