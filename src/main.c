@@ -2251,9 +2251,6 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (key == CRAFT_KEY_FLY) {
             g->flying = !g->flying;
         }
-        if (key == CRAFT_KEY_SPRINT) {
-            g->sprinting = !g->sprinting;
-        }
         if (key >= '1' && key <= '9') {
             g->item_index = key - '1';
         }
@@ -2417,6 +2414,7 @@ void handle_movement(double dt) {
     State *s = &g->players->state;
     int sz = 0;
     int sx = 0;
+    g->sprinting = 0;
     if (!g->typing) {
         float m = dt * 1.0;
         g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
@@ -2429,6 +2427,7 @@ void handle_movement(double dt) {
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
+        if (glfwGetKey(g->window, CRAFT_KEY_SPRINT)) g->sprinting = 1;
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
@@ -2442,7 +2441,8 @@ void handle_movement(double dt) {
             }
         }
     }
-    float speed = g->sprinting ? 20 : 5;
+    float speed = g->sprinting ? 10 : 5;
+    speed = g->flying ? 20 : speed;
     int estimate = roundf(sqrtf(
         powf(vx * speed, 2) +
         powf(vy * speed + ABS(dy) * 2, 2) +
