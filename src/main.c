@@ -2439,6 +2439,13 @@ void handle_movement(double dt) {
             else if (dy == 0) {
                 dy = 8;
             }
+        } else if (glfwGetKey(g->window, CRAFT_KEY_CROUCH)) {
+            if (g->flying) {
+                vy = -1;
+            }
+            else if (dy == 0) {
+                dy = -8;
+            }
         }
     }
     float speed = g->sprinting ? 10 : 5;
