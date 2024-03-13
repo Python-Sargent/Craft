@@ -135,6 +135,7 @@ typedef struct {
     int observe1;
     int observe2;
     int flying;
+    int sprinting;
     int item_index;
     int scale;
     int ortho;
@@ -2250,6 +2251,9 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (key == CRAFT_KEY_FLY) {
             g->flying = !g->flying;
         }
+        if (key == CRAFT_KEY_SPRINT) {
+            g->sprinting = !g->sprinting;
+        }
         if (key >= '1' && key <= '9') {
             g->item_index = key - '1';
         }
@@ -2438,7 +2442,7 @@ void handle_movement(double dt) {
             }
         }
     }
-    float speed = g->flying ? 20 : 5;
+    float speed = g->sprinting ? 20 : 5;
     int estimate = roundf(sqrtf(
         powf(vx * speed, 2) +
         powf(vy * speed + ABS(dy) * 2, 2) +
