@@ -1674,7 +1674,7 @@ void render_signs(Attrib *attrib, Player *player) {
 }
 
 void render_sign(Attrib *attrib, Player *player) {
-    if (!g->typing || g->typing_buffer[0] != CRAFT_KEY_SIGN) {
+    if (!g->typing || g->typing_buffer[0] != OPENCUBE_KEY_SIGN) {
         return;
     }
     int x, y, z, face;
@@ -2212,7 +2212,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
             }
             else {
                 g->typing = 0;
-                if (g->typing_buffer[0] == CRAFT_KEY_SIGN) {
+                if (g->typing_buffer[0] == OPENCUBE_KEY_SIGN) {
                     Player *player = g->players;
                     int x, y, z, face;
                     if (hit_test_face(player, &x, &y, &z, &face)) {
@@ -2248,7 +2248,7 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         }
     }
     if (!g->typing) {
-        if (key == CRAFT_KEY_FLY) {
+        if (key == OPENCUBE_KEY_FLY) {
             g->flying = !g->flying;
         }
         if (key >= '1' && key <= '9') {
@@ -2257,20 +2257,23 @@ void on_key(GLFWwindow *window, int key, int scancode, int action, int mods) {
         if (key == '0') {
             g->item_index = 9;
         }
-        if (key == CRAFT_KEY_ITEM_NEXT) {
+        if (key == OPENCUBE_KEY_ITEM_NEXT) {
             g->item_index = (g->item_index + 1) % item_count;
         }
-        if (key == CRAFT_KEY_ITEM_PREV) {
+        if (key == OPENCUBE_KEY_ITEM_PREV) {
             g->item_index--;
             if (g->item_index < 0) {
                 g->item_index = item_count - 1;
             }
         }
-        if (key == CRAFT_KEY_OBSERVE) {
+        if (key == OPENCUBE_KEY_OBSERVE) {
             g->observe1 = (g->observe1 + 1) % g->player_count;
         }
-        if (key == CRAFT_KEY_OBSERVE_INSET) {
+        if (key == OPENCUBE_KEY_OBSERVE_INSET) {
             g->observe2 = (g->observe2 + 1) % g->player_count;
+        }
+        if (key == OPENCUBE_KEY_FULLSCREEN) {
+            FULLSCREEN ? 0 : 1;
         }
     }
 }
@@ -2291,18 +2294,18 @@ void on_char(GLFWwindow *window, unsigned int u) {
         }
     }
     else {
-        if (u == CRAFT_KEY_CHAT) {
+        if (u == OPENCUBE_KEY_CHAT) {
             g->typing = 1;
             g->typing_buffer[0] = '\0';
         }
-        if (u == CRAFT_KEY_COMMAND) {
+        if (u == OPENCUBE_KEY_COMMAND) {
             g->typing = 1;
             g->typing_buffer[0] = '/';
             g->typing_buffer[1] = '\0';
         }
-        if (u == CRAFT_KEY_SIGN) {
+        if (u == OPENCUBE_KEY_SIGN) {
             g->typing = 1;
-            g->typing_buffer[0] = CRAFT_KEY_SIGN;
+            g->typing_buffer[0] = OPENCUBE_KEY_SIGN;
             g->typing_buffer[1] = '\0';
         }
     }
@@ -2373,7 +2376,7 @@ void create_window() {
         window_height = modes[mode_count - 1].height;
     }
     g->window = glfwCreateWindow(
-        window_width, window_height, "Craft", monitor, NULL);
+        window_width, window_height, OPENCUBE_NAME, monitor, NULL);
 }
 
 void handle_mouse_input() {
@@ -2417,29 +2420,29 @@ void handle_movement(double dt) {
     g->sprinting = 0;
     if (!g->typing) {
         float m = dt * 1.0;
-        g->ortho = glfwGetKey(g->window, CRAFT_KEY_ORTHO) ? 64 : 0;
-        g->fov = glfwGetKey(g->window, CRAFT_KEY_ZOOM) ? 15 : 65;
-        if (glfwGetKey(g->window, CRAFT_KEY_FORWARD)) sz--;
-        if (glfwGetKey(g->window, CRAFT_KEY_BACKWARD)) sz++;
-        if (glfwGetKey(g->window, CRAFT_KEY_LEFT)) sx--;
-        if (glfwGetKey(g->window, CRAFT_KEY_RIGHT)) sx++;
+        g->ortho = glfwGetKey(g->window, OPENCUBE_KEY_ORTHO) ? 64 : 0;
+        g->fov = glfwGetKey(g->window, OPENCUBE_KEY_ZOOM) ? 15 : 65;
+        if (glfwGetKey(g->window, OPENCUBE_KEY_FORWARD)) sz--;
+        if (glfwGetKey(g->window, OPENCUBE_KEY_BACKWARD)) sz++;
+        if (glfwGetKey(g->window, OPENCUBE_KEY_LEFT)) sx--;
+        if (glfwGetKey(g->window, OPENCUBE_KEY_RIGHT)) sx++;
         if (glfwGetKey(g->window, GLFW_KEY_LEFT)) s->rx -= m;
         if (glfwGetKey(g->window, GLFW_KEY_RIGHT)) s->rx += m;
         if (glfwGetKey(g->window, GLFW_KEY_UP)) s->ry += m;
         if (glfwGetKey(g->window, GLFW_KEY_DOWN)) s->ry -= m;
-        if (glfwGetKey(g->window, CRAFT_KEY_SPRINT)) g->sprinting = 1;
+        if (glfwGetKey(g->window, OPENCUBE_KEY_SPRINT)) g->sprinting = 1;
     }
     float vx, vy, vz;
     get_motion_vector(g->flying, sz, sx, s->rx, s->ry, &vx, &vy, &vz);
     if (!g->typing) {
-        if (glfwGetKey(g->window, CRAFT_KEY_JUMP)) {
+        if (glfwGetKey(g->window, OPENCUBE_KEY_JUMP)) {
             if (g->flying) {
                 vy = 1;
             }
             else if (dy == 0) {
                 dy = 8;
             }
-        } else if (glfwGetKey(g->window, CRAFT_KEY_CROUCH)) {
+        } else if (glfwGetKey(g->window, OPENCUBE_KEY_CROUCH)) {
             if (g->flying) {
                 vy = -1;
             }
