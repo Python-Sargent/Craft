@@ -1,9 +1,4 @@
-cmake_minimum_required(VERSION 3.26)
-
-set(CMAKE_C_COMPILER "/usr/bin/gcc.exe")
-set(CMAKE_CXX_COMPILER "/usr/bin/g++.exe")
-set(CMAKE_MAKE_PROGRAM "/usr/bin/cmake.exe")
-set(CMAKE_GENERATOR "MinGW Makefiles")
+cmake_minimum_required(VERSION 2.8)
 
 project(opencube)
 

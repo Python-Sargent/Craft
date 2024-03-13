@@ -6,6 +6,9 @@ https://github.com/Python-Sargent/OpenCube.git
 
 ![Screenshot](https://i.imgur.com/SH7wcas.png)
 
+This is a fork of the @folgleman/craft repository, in this fork I am attempting to learn and grow in my programming skills and add to this game.
+I will not attempt to sell or publish this game publicly without consent.
+
 ### Features
 
 * Simple but nice looking terrain generation using perlin / simplex noise.

@@ -1,4 +1,5 @@
-Copyright (C) 2013 Michael Fogleman
+Copyright (C) 2013 Michael Fogleman (Master)
+Copyright (C) 2023 Samuel Sargent (Fork)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
